@@ -1,0 +1,104 @@
+﻿@model IEnumerable<RemnantsProject.Data.Slab>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<div>@await Html.PartialAsync("FindForm", new RemnantsProject.Models.SlabSearch()) </div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatchNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurfaceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thickness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InHold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayConfirmationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SlabPickedUpDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colour.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BatchNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurfaceType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thickness)
+            </td>
+            <td>
+                    @if (item.InHold)
+                    {
+                        <span class="hold">Hold</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayConfirmationNumber)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SlabPickedUpDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SlabId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SlabId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SlabId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

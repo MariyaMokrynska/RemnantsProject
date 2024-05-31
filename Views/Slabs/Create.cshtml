@@ -1,0 +1,95 @@
+﻿@model RemnantsProject.Data.Slab
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Slab</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Manufacturer</label>
+                <select asp-for="ManufacturerId" class ="form-control" asp-items="ViewBag.ManufacturerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ColorId" class="control-label"></label>
+                <select asp-for="ColorId" class ="form-control" asp-items="ViewBag.ColorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BatchNumber" class="control-label"></label>
+                <input asp-for="BatchNumber" class="form-control" />
+                <span asp-validation-for="BatchNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurfaceType" class="control-label"></label>
+                <select asp-for="SurfaceTypeId" class ="form-control" asp-items="ViewBag.SurfaceTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Length" class="control-label"></label>
+                <input asp-for="Length" class="form-control" />
+                <span asp-validation-for="Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Thickness" class="control-label"></label>
+                <input asp-for="Thickness" class="form-control" />
+                <span asp-validation-for="Thickness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+@*             <div class="form-group">
+                <label asp-for="HoldDueDate" class="control-label"></label>
+                <input asp-for="HoldDueDate" class="form-control" />
+                <span asp-validation-for="HoldDueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoldCustomerName" class="control-label"></label>
+                <input asp-for="HoldCustomerName" class="form-control" />
+                <span asp-validation-for="HoldCustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoldCustomerId" class="control-label"></label>
+                <input asp-for="HoldCustomerId" class="form-control" />
+                <span asp-validation-for="HoldCustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PayConfirmationNumber" class="control-label"></label>
+                <input asp-for="PayConfirmationNumber" class="form-control" />
+                <span asp-validation-for="PayConfirmationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SlabPickedUp" /> @Html.DisplayNameFor(model => model.SlabPickedUp)
+                </label>
+            </div> 
+            <div class="form-group">
+                <label asp-for="SlabPickedUpDate" class="control-label"></label>
+                <input asp-for="SlabPickedUpDate" class="form-control" />
+                <span asp-validation-for="SlabPickedUpDate" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
