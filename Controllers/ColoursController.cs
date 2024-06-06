@@ -25,9 +25,9 @@ namespace RemnantsProject.Controllers
         // GET: Colours
         public async Task<IActionResult> Index()
         {
-              return _context.Colours != null ? 
-                          View(await _context.Colours.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Colours'  is null.");
+            return _context.Colours != null ?
+                        View(await _context.Colours.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Colours'  is null.");
         }
 
         // GET: Colours/Details/5
@@ -77,7 +77,8 @@ namespace RemnantsProject.Controllers
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ModelState.AddModelError("Picture", ex.Message);
             }
@@ -167,29 +168,31 @@ namespace RemnantsProject.Controllers
             {
                 _context.Colours.Remove(colour);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ColourExists(int id)
         {
-          return (_context.Colours?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Colours?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
         private String UploadFile(IFormFile uploadedFile)
         {
             String ImageExtention;
             String ImageName, FullImageName;
-            
+
             Random rnd = new Random();
-            if(uploadedFile.ContentType == "image/png")
+            if (uploadedFile.ContentType == "image/png")
             {
                 ImageExtention = ".png";
-            }else if(uploadedFile.ContentType == "image/jpeg")
+            }
+            else if (uploadedFile.ContentType == "image/jpeg")
             {
                 ImageExtention = ".jpg";
-            }else if(uploadedFile.ContentType == "image/gif")
+            }
+            else if (uploadedFile.ContentType == "image/gif")
             {
                 ImageExtention = ".gif";
             }

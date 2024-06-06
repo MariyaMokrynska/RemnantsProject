@@ -3,7 +3,7 @@
 namespace RemnantsProject.Data
 {
     public enum ColourType
-    {        
+    {
         DARK,
         BRIGHT
     }
@@ -16,7 +16,7 @@ namespace RemnantsProject.Data
         public string Name { get; set; }
         public ColourType Type { get; set; } = ColourType.BRIGHT;
         // not required field
-        public String? Picture {  get; set; } = null;
+        public String? Picture { get; set; } = null;
 
     }
 }

@@ -1,16 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-
-}
-@model RemnantsProject.Models.SlabSearch
-<h1>Find</h1>
+﻿@model RemnantsProject.Models.SlabSearch
+<h3>Search a remnant piece:</h3>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index" method="get">
-            @*  <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+    <div class="col-md-12">
+        <form class="form-inline-custom" asp-action="Index" method="get">
             <div class="form-group">
                 <label class="control-label">Sold State</label>
                 <select asp-for="SoldState" class="form-control">
@@ -20,78 +13,42 @@
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="MinPrice" class="control-label"></label>
-                <input asp-for="MinPrice" class="form-control" />
-                @*   <span asp-validation-for="BatchNumber" class="text-danger"></span> *@
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxPrice" class="control-label"></label>
-                <input asp-for="MaxPrice" class="form-control" />
-                @*   <span asp-validation-for="BatchNumber" class="text-danger"></span> *@
-            </div>
-            <div class="form-group">
-                <label asp-for="MinLength" class="control-label"></label>
-                <input asp-for="MinLength" class="form-control" />
-                @* <span asp-validation-for="Length" class="text-danger"></span> *@
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxLength" class="control-label"></label>
-                <input asp-for="MaxLength" class="form-control" />
-                @* <span asp-validation-for="Length" class="text-danger"></span> *@
-            </div>
-            <div class="form-group">
-                <label asp-for="MinWidth" class="control-label"></label>
-                <input asp-for="MinWidth" class="form-control"  />
-                @*<span asp-validation-for="Width" class="text-danger"></span>*@
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxWidth" class="control-label"></label>
-                <input asp-for="MaxWidth" class="form-control" />
-                @*<span asp-validation-for="Width" class="text-danger"></span>*@
-            </div>
-            <div class="form-group">
-                <label asp-for="Thickness" class="control-label"></label>
+                <label asp-for="Thickness" class="control-label">Thickness</label>
                 <select asp-for="Thickness" class="form-control">
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-                @*   <span asp-validation-for="Thickness" class="text-danger"></span>*@
-                </div>
-            @*             <div class="form-group">
-            <label asp-for="HoldDueDate" class="control-label"></label>
-            <input asp-for="HoldDueDate" class="form-control" />
-            <span asp-validation-for="HoldDueDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-            <label asp-for="HoldCustomerName" class="control-label"></label>
-            <input asp-for="HoldCustomerName" class="form-control" />
-            <span asp-validation-for="HoldCustomerName" class="text-danger"></span>
+                <label asp-for="MinPrice" class="control-label">Min Price</label>
+                <input asp-for="MinPrice" class="form-control" />
             </div>
             <div class="form-group">
-            <label asp-for="HoldCustomerId" class="control-label"></label>
-            <input asp-for="HoldCustomerId" class="form-control" />
-            <span asp-validation-for="HoldCustomerId" class="text-danger"></span>
+                <label asp-for="MaxPrice" class="control-label">Max Price</label>
+                <input asp-for="MaxPrice" class="form-control" />
             </div>
             <div class="form-group">
-            <label asp-for="PayConfirmationNumber" class="control-label"></label>
-            <input asp-for="PayConfirmationNumber" class="form-control" />
-            <span asp-validation-for="PayConfirmationNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-            <label class="form-check-label">
-            <input class="form-check-input" asp-for="SlabPickedUp" /> @Html.DisplayNameFor(model => model.SlabPickedUp)
-            </label>
+                <label asp-for="MinLength" class="control-label">Min Length</label>
+                <input asp-for="MinLength" class="form-control" />
             </div>
             <div class="form-group">
-            <label asp-for="SlabPickedUpDate" class="control-label"></label>
-            <input asp-for="SlabPickedUpDate" class="form-control" />
-            <span asp-validation-for="SlabPickedUpDate" class="text-danger"></span>
-            </div>*@
+                <label asp-for="MaxLength" class="control-label">Max Length</label>
+                <input asp-for="MaxLength" class="form-control" />
+            </div>
             <div class="form-group">
+                <label asp-for="MinWidth" class="control-label">Min Width</label>
+                <input asp-for="MinWidth" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxWidth" class="control-label">Max Width</label>
+                <input asp-for="MaxWidth" class="form-control" />
+            </div>
+            <div class="btn-container">
                 <input type="submit" value="Find" class="btn btn-primary" />
+                <a asp-controller="Slabs" asp-action="Index" class="btn btn-primary">Show all slabs</a>
             </div>
-            <a asp-controller="Slabs" asp-action="Index" class="btn btn-primary">Show all slabs</a>
         </form>
+        <hr />
     </div>
 </div>
 
@@ -99,4 +56,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-}
+    }

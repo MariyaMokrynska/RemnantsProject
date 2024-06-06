@@ -8,7 +8,7 @@ namespace RemnantsProject.Data
         public const string USER = "user";
         public const string SALESPERSON = "salesperson";
         public const string ADMIN = "admin";
-        
+
 
     }
 
@@ -29,7 +29,7 @@ namespace RemnantsProject.Data
         [StringLength(50)]
         public string? Email { get; set; }
         [StringLength(100)]
-        public string? HomeAddress{ get; set; }
+        public string? HomeAddress { get; set; }
         [StringLength(20)]
         public string Role { get; set; }
     }

@@ -10,7 +10,7 @@ using RemnantsProject.Data;
 
 namespace RemnantsProject.Controllers
 {
-    [Authorize(Roles= RemnantsProject.Data.Roles.ADMIN)]
+    [Authorize(Roles = RemnantsProject.Data.Roles.ADMIN)]
     public class SurfaceTypesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,9 +23,9 @@ namespace RemnantsProject.Controllers
         // GET: SurfaceTypes
         public async Task<IActionResult> Index()
         {
-              return _context.SurfaceTypes != null ? 
-                          View(await _context.SurfaceTypes.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.SurfaceTypes'  is null.");
+            return _context.SurfaceTypes != null ?
+                        View(await _context.SurfaceTypes.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.SurfaceTypes'  is null.");
         }
 
         // GET: SurfaceTypes/Details/5
@@ -151,14 +151,14 @@ namespace RemnantsProject.Controllers
             {
                 _context.SurfaceTypes.Remove(surfaceType);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SurfaceTypeExists(int id)
         {
-          return (_context.SurfaceTypes?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.SurfaceTypes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

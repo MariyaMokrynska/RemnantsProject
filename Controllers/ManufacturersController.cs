@@ -21,9 +21,9 @@ namespace RemnantsProject.Controllers
         // GET: Manufacturers
         public async Task<IActionResult> Index()
         {
-              return _context.Manufacturers != null ? 
-                          View(await _context.Manufacturers.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Manufacturers'  is null.");
+            return _context.Manufacturers != null ?
+                        View(await _context.Manufacturers.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Manufacturers'  is null.");
         }
 
         // GET: Manufacturers/Details/5
@@ -149,14 +149,14 @@ namespace RemnantsProject.Controllers
             {
                 _context.Manufacturers.Remove(manufacturer);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ManufacturerExists(int id)
         {
-          return (_context.Manufacturers?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Manufacturers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -225,7 +225,7 @@ namespace RemnantsProject.Controllers
                 {
                     return View("Error", new ErrorViewModel() { RequestId = "Slab is not available." });
                 }
-                if(!String.IsNullOrEmpty(slab.PayConfirmationNumber) || slab.SlabPickedUpDate != null)
+                if (!String.IsNullOrEmpty(slab.PayConfirmationNumber) || slab.SlabPickedUpDate != null)
                 {
                     return View("Error", new ErrorViewModel() { RequestId = "Slab was already paid or picked up." });
                 }
@@ -257,7 +257,7 @@ namespace RemnantsProject.Controllers
                     return View("Error", new ErrorViewModel() { RequestId = "Payment was already made." });
                 }
                 slab.PayConfirmationNumber = PaymentConfirmationNumber;
-                
+
                 string userLogin = HttpContext.User.Identity.Name;
                 User user = await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == userLogin);
                 if (user == null)
@@ -279,7 +279,7 @@ namespace RemnantsProject.Controllers
             if (slabId > 0)
             {
                 Slab slab = _context.Slabs.FirstOrDefault(s => s.SlabId == slabId);
-                if(String.IsNullOrEmpty(slab.PayConfirmationNumber))
+                if (String.IsNullOrEmpty(slab.PayConfirmationNumber))
                 {
                     return View("Error", new ErrorViewModel() { RequestId = "Payment was not made. You can not pick up the slab!" });
                 }

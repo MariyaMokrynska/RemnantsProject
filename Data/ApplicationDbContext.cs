@@ -15,13 +15,13 @@ namespace RemnantsProject.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-           
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().HasData(new User[] { new User {Id=1, PhoneNumber = "407-111-1111", Password = "1111", FirstName = "Mariya", LastName = "Mokrynska", Role = Data.Roles.ADMIN} });
+            modelBuilder.Entity<User>().HasData(new User[] { new User { Id = 1, PhoneNumber = "407-111-1111", Password = "1111", FirstName = "Mariya", LastName = "Mokrynska", Role = Data.Roles.ADMIN } });
         }
     }
 }

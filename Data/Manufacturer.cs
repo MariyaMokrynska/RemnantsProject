@@ -9,7 +9,7 @@ namespace RemnantsProject.Data
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-        public List<Slab> Slabs { get; set; }=new List<Slab>();
+        public List<Slab> Slabs { get; set; } = new List<Slab>();
 
 
     }

@@ -88,9 +88,10 @@ namespace RemnantsProject.Controllers
                     await _context.SaveChangesAsync();
                     InnerLogin(user.PhoneNumber, user.Role, user.FirstName);
                     return RedirectToAction("Index", "Home");
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
-                    if (ex.InnerException?.Message.Contains("duplicate key")??false)
+                    if (ex.InnerException?.Message.Contains("duplicate key") ?? false)
                     {
                         ModelState.AddModelError("PhoneNumber", "This phone number  is already registrated.");
                         return View(registrationModel);
@@ -241,7 +242,7 @@ namespace RemnantsProject.Controllers
 
         private bool UserExists(int id)
         {
-            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();           
+            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
         private async void InnerLogin(string phoneNumber, string role, string firstname)
@@ -261,7 +262,7 @@ namespace RemnantsProject.Controllers
         {
             return View();
         }
-        
+
         public static String GetUserName(ClaimsPrincipal user)
         {
             return user.FindFirstValue(ClaimTypes.NameIdentifier);
